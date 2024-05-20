@@ -138,6 +138,7 @@ export async function POST({ request }: APIEvent) {
             }
             try {
               const json = JSON.parse(data)
+              //这里获取了返回Json中的内容
               const text = json.choices[0].delta?.content
               const queue = encoder.encode(text)
               controller.enqueue(queue)
